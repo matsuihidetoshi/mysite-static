@@ -106,6 +106,13 @@ export default {
     }
   },
 
+  generate: {
+    routes () {
+      const { $content } = require('@nuxt/content')
+      return $content.database.items._data.map((data: any) => data.url === '/index' ? '/' : data.url)
+    }
+  },
+
   typescript: {
     typeCheck: true,
     ignoreNotFoundWarnings: true

@@ -2,7 +2,7 @@
 title: About
 id: index
 image: /profile.png
-description: Self-introduction
+description: 静岡県浜松市のWeb開発者 松井英俊の自己紹介
 url: /about/
 date: 2020-10-21
 ---
