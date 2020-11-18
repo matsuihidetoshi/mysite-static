@@ -6,12 +6,19 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - mysite-static',
-    title: 'mysite-static',
+    titleTemplate: '%s - Matsui Hidetoshi',
+    title: 'Matsui Hidetoshi',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '静岡県浜松市のWeb開発者 松井英俊のホームページ' },
+      { hid: 'keywords', name: 'keywords', content: '松井,英俊,松井英俊,Matsui,Hidetoshi,Matsui Hidetoshi,浜松,静岡,浜松市,静岡県,Web,エンジニア,まついひでとし,まつい,ひでとし' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Matsui Hidetoshi' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: process.env.BASE_URL || 'http://localhost:3000' },
+      { hid: 'og:title', property: 'og:title', content: 'Matsui Hidetoshi' },
+      { hid: 'og:description', property: 'og:description', content: '静岡県浜松市のWeb Developer 松井英俊のホームページ' },
+      { hid: 'og:image', property: 'og:image', content: (process.env.BASE_URL || 'http://localhost:3000') + '/profile.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -24,6 +31,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/truncate'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -57,7 +65,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -72,7 +80,34 @@ export default {
     }
   },
 
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  },
+
+  pwa: {
+    manifest: {
+      name: 'Matsui Hidetoshi',
+      short_name: 'Matsui, H.'
+    }
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend(config: any, ctx: any) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: "pre",
+          test: /\.(js|vue)$/,
+          loader: "eslint-loader",
+          exclude: /(node_modules)/
+        })
+      }
+    }
+  },
+
+  typescript: {
+    typeCheck: true,
+    ignoreNotFoundWarnings: true
   }
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "mdi-apps",
+    "title": "Home",
+    "to": "/"
+  },
+  {
+    "icon": "mdi-information-outline",
+    "title": "About",
+    "to": "/about"
+  },
+  {
+    "icon": "mdi-wrench",
+    "title": "制作物",
+    "to": "/works"
+  },
+  {
+    "icon": "mdi-camera",
+    "title": "メディア掲載",
+    "to": "/media_coverages"
+  },
+  {
+    "icon": "mdi-newspaper-variant-multiple-outline",
+    "title": "日記",
+    "to": "/articles"
+  },
+  {
+    "icon": "mdi-comment-text-outline",
+    "title": "お問い合わせ",
+    "to": "/contact"
+  }
+]
