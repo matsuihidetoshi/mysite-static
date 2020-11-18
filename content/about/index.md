@@ -3,6 +3,7 @@ title: About
 id: index
 image: /profile.png
 description: Self-introduction
+url: /about/
 date: 2020-10-21
 ---
 

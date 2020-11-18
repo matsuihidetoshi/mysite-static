@@ -3,6 +3,7 @@ title: AWS builders.flash✨ 掲載 その1
 id: builders.flash-1
 image: /media_coverages/amplify_vue.png
 description: Amplify + Vue.js を活用したハンズオンの実施と、AWS公式Webマガジン builders.flash✨ への掲載
+url: /media_coverages/builders.flash-1/
 date: 2020-10-24 00:00:01
 ---
 

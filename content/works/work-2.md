@@ -3,6 +3,7 @@ title: フラワーパーク企画（浜松市ハッカソン）
 id: flowerpark
 image: /works/flowerpark.png
 description: 浜松市ハッカソンのフラワーパークの企画について
+url: /works/flowerpark/
 date: 2020-10-24 00:00:02
 ---
 

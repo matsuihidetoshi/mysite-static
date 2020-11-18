@@ -3,6 +3,7 @@ title: 情報サイトテンプレート
 id: shopinfo
 image: /works/shopinfo.png
 description: 店舗向けの情報サイトのテンプレート
+url: /works/shopinfo/
 date: 2020-10-24 00:00:01
 ---
 

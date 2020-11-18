@@ -3,6 +3,7 @@ title: Webサイトリプレイス
 id: built-new-web-site
 image: /articles/articles.png
 description: nuxt/content を使用して、vue-cli + APIで構築していたWebサイトをリプレイスした
+url: /articles/built-new-web-site/
 date: 2020-10-24
 ---
 
