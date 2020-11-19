@@ -47,14 +47,19 @@
     >
       <span>&copy; {{ new Date().getFullYear() }} &nbsp; Matsui Hidetoshi</span>
     </v-footer>
+    <scroll-button />
   </v-app>
 </template>
 
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import items from '~/data/items.json'
+import ScrollButton from '~/components/ScrollButton.vue'
 
 @Component({
+  components: {
+    ScrollButton
+  },
   data () {
     return {
       clipped: true,

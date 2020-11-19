@@ -37,6 +37,7 @@
         class="
           mt-2
           mr-3
+          mb-9
         "
         to="/"
       >
