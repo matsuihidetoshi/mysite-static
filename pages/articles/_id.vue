@@ -1,7 +1,6 @@
 <template>
   <detail
-    content-type="articles"
-    :content-id="$route.params.id"
+    :content="content"
   />
 </template>
 <script>
@@ -27,7 +26,7 @@ import Detail from '~/components/contents/Detail.vue'
         {
           hid: 'og:url',
           property: 'og:url',
-          content: process.env.baseUrl + this.content.url
+          content: process.env.baseUrl + this.content.path
         },
         {
           hid: 'og:description',

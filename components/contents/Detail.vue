@@ -28,7 +28,7 @@
           mt-2
           mr-3
         "
-        :to="'/' + contentType"
+        :to="content.dir"
       >
         back
       </v-btn>
@@ -43,15 +43,6 @@
         home
       </v-btn>
     </v-row>
-
-    <v-overlay :value="overlay">
-      <v-progress-circular
-        v-if="!loaded"
-        indeterminate
-        :size="80"
-        :width="10"
-      />
-    </v-overlay>
   </div>
 </template>
 <script>
@@ -63,39 +54,13 @@ import Name from '~/components/Name.vue'
     Name
   },
   props: {
-    contentType: {
-      type: String,
-      required: true
-    },
-    contentId: {
-      type: String,
+    content: {
+      type: Object,
       required: true
     },
     returnToList: {
       type: Boolean,
       default: true
-    }
-  },
-  data () {
-    return {
-      content: null,
-      overlay: true,
-      loaded: false
-    }
-  },
-  mounted () {
-    this.getContent().then((contents) => {
-      this.content = contents[0]
-      this.overlay = false
-      this.loaded = true
-    })
-  },
-  methods: {
-    async getContent () {
-      return await this.$content(this.contentType).where({ id: this.contentId }).fetch()
-    },
-    baseUrl () {
-      return process.env.baseUrl
     }
   }
 })

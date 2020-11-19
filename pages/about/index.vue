@@ -1,7 +1,6 @@
 <template>
   <detail
-    content-type="about"
-    content-id="index"
+    :content="content"
     :return-to-list="false"
   />
 </template>
@@ -28,7 +27,7 @@ import Detail from '~/components/contents/Detail.vue'
         {
           hid: 'og:url',
           property: 'og:url',
-          content: process.env.baseUrl + this.content.url
+          content: process.env.baseUrl + this.content.path
         },
         {
           hid: 'og:description',
