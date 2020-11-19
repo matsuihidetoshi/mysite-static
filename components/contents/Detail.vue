@@ -1,13 +1,13 @@
 <template>
   <div>
     <h1>
-      <name
+      <emerge-text
         v-if="content"
         :message="content.title"
       />
     </h1>
 
-    <name
+    <emerge-text
       v-if="content"
       :message="
         new Date(content.date).toLocaleDateString()
@@ -47,11 +47,11 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import Name from '~/components/Name.vue'
+import EmergeText from '~/components/EmergeText.vue'
 
 @Component({
   components: {
-    Name
+    EmergeText
   },
   props: {
     content: {

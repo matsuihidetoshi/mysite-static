@@ -6,7 +6,7 @@
         ma-2
       "
     >
-      <name :message="title" />
+      <emerge-text :message="title" />
     </h1>
 
     <v-pagination
@@ -43,13 +43,13 @@
                 ml-2
               "
             >
-              <name :message="$truncate(content.title, 12)" />
+              <emerge-text :message="$truncate(content.title, 12)" />
             </v-card-title>
 
             <v-card-text
               class="ml-2"
             >
-              <name :message="new Date(content.date).toLocaleDateString()" />
+              <emerge-text :message="new Date(content.date).toLocaleDateString()" />
             </v-card-text>
           </v-card>
         </nuxt-link>
@@ -64,7 +64,7 @@
       >
         <v-card>
           <v-card-title>
-            <name message="No posts yet." />
+            <emerge-text message="No posts yet." />
           </v-card-title>
         </v-card>
       </v-col>
@@ -102,11 +102,11 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import Name from '~/components/Name.vue'
+import EmergeText from '~/components/EmergeText.vue'
 
 @Component({
   components: {
-    Name
+    EmergeText
   },
   props: {
     contentType: {

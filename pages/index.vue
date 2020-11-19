@@ -21,7 +21,7 @@
                     ml-1
                   "
                 >
-                  <name
+                  <emerge-text
                     message="Matsui"
                     class="
                       d-inline-block
@@ -29,7 +29,7 @@
                       text-h5
                     "
                   />
-                  <name
+                  <emerge-text
                     message="Hidetoshi"
                     class="
                       d-inline-block
@@ -37,7 +37,7 @@
                       text-h5
                     "
                   />
-                  <name message="Web Developer" />
+                  <emerge-text message="Web Developer" />
                 </div>
               </v-col>
             </v-row>
@@ -61,7 +61,7 @@
             font-weight-bold
           "
         >
-          <name :message="description.title" />
+          <emerge-text :message="description.title" />
         </v-card-title>
         <v-card-text>
           <p
@@ -98,12 +98,12 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import Name from '~/components/Name.vue'
+import EmergeText from '~/components/EmergeText.vue'
 import descriptions from '~/data/descriptions.json'
 
 @Component({
   components: {
-    Name
+    EmergeText
   },
   data () {
     return {

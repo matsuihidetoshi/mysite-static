@@ -1,5 +1,5 @@
 <template>
-  <div class="Name">
+  <div class="EmergeText">
     <div>
       <div
         v-for="(letter, index) in letters"
@@ -64,7 +64,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
   }
 })
 
-export default class Name extends Vue { }
+export default class EmergeText extends Vue { }
 </script>
 
 <style>
