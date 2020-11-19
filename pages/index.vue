@@ -13,12 +13,12 @@
                   <v-img src="/profile.png" />
                 </v-avatar>
               </v-col>
+
               <v-col cols="8">
                 <div
                   class="
                     text-left
-                    mt-4
-                    ml-1
+                    ma-1
                   "
                 >
                   <emerge-text
@@ -29,6 +29,7 @@
                       text-h5
                     "
                   />
+
                   <emerge-text
                     message="Hidetoshi"
                     class="
@@ -37,7 +38,26 @@
                       text-h5
                     "
                   />
-                  <emerge-text message="Web Developer" />
+
+                  <emerge-text
+                    message="Web Developer"
+                  />
+
+                  <v-icon
+                    class="mb-1"
+                  >
+                    mdi-github
+                  </v-icon>
+
+                  <a
+                    href="https://github.com/matsuihidetoshi"
+                    target="_blank"
+                  >
+                    <emerge-text
+                      message="matsuihidetoshi"
+                      class="d-inline-block"
+                    />
+                  </a>
                 </div>
               </v-col>
             </v-row>

@@ -20,6 +20,8 @@ date: 2020-10-21
   <div class="col-xs-12 col-sm-4">
     <h1>松井 英俊</h1>
     <h2>Web Developer</h2>
+    <i aria-hidden="true" class="v-icon notranslate mdi mdi-github"></i>
+    <a href="https://github.com/matsuihidetoshi" target="_blank">matsuihidetoshi</a>
   </div>
 </div>
 
