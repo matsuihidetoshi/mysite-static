@@ -109,7 +109,7 @@ date: 2020-11-25
 
 <br>
 
-## 2. 浜名湖佐久米駅
+## 3. 浜名湖佐久米駅
 
 <img src="/articles/sakume-station-seagulls.png" width="100%">
 <small>カモメが非常に人懐っこい　人懐っこいを通り越してむしろ厚かましい　でもかわいいぞ</small>
@@ -145,6 +145,8 @@ date: 2020-11-25
 </div>
 
 ***
+
+<br>
 
 # まとめ
 
