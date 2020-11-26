@@ -9,6 +9,26 @@
       <emerge-text :message="title" />
     </h1>
 
+    <div
+      class="
+        d-flex
+        justify-space-between
+        mb-3
+      "
+    >
+      <v-btn
+        v-for="(tag, index) in tags"
+        :key="index"
+        :color="'#' + tag.color"
+        class="
+          white--text
+          font-weight-bold
+        "
+      >
+        {{ tag.name }}
+      </v-btn>
+    </div>
+
     <v-pagination
       v-model="page"
       :length="pageLength"
@@ -104,6 +124,7 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import EmergeText from '~/components/EmergeText.vue'
+import tags from '~/data/tags.json'
 
 @Component({
   components: {
@@ -121,6 +142,7 @@ import EmergeText from '~/components/EmergeText.vue'
   },
   data () {
     return {
+      tags,
       contents: [],
       page: 1,
       pageLength: 0,
