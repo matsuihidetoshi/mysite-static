@@ -9,12 +9,14 @@
       <emerge-text :message="title" />
     </h1>
 
-    <tags />
+    <tags
+      v-model="tagState"
+    />
 
     <v-pagination
       v-model="page"
       :length="pageLength"
-      @input="getContentList()"
+      @input="getContentListByTags(tagState)"
     />
 
     <v-row
@@ -52,6 +54,11 @@
               class="ml-2"
             >
               <emerge-text :message="new Date(content.date).toLocaleDateString()" />
+
+              <tags
+                v-model="tagState"
+                :visibles="content.tags"
+              />
             </v-card-text>
           </v-card>
         </nuxt-link>
@@ -75,10 +82,12 @@
     <v-pagination
       v-model="page"
       :length="pageLength"
-      @input="getContentList()"
+      @input="getContentListByTags(tagState)"
     />
 
-    <tags />
+    <tags
+      v-model="tagState"
+    />
 
     <v-row>
       <v-spacer />
@@ -108,6 +117,7 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import EmergeText from '~/components/EmergeText.vue'
+import tags from '~/data/tags.json'
 import Tags from '~/components/contents/Tags.vue'
 
 @Component({
@@ -127,6 +137,8 @@ import Tags from '~/components/contents/Tags.vue'
   },
   data () {
     return {
+      tags,
+      tagState: [],
       contents: [],
       page: 1,
       pageLength: 0,
@@ -137,6 +149,7 @@ import Tags from '~/components/contents/Tags.vue'
     }
   },
   mounted () {
+    this.initializeTagState()
     this.getContentList().then(() => {
       this.getTotalLength()
     }).catch(() => {
@@ -145,15 +158,49 @@ import Tags from '~/components/contents/Tags.vue'
       this.loaded = true
     })
   },
+  watch: {
+    tagState: {
+      handler () {
+        this.getContentListByTags(this.tagState)
+      },
+      deep: true
+    }
+  },
   methods: {
-    async getContentList () {
+    async getContentList (tags = null) {
       this.contents = []
       this.skip = (this.page - 1) * this.limit
-      this.contents = await this.$content(this.contentType).sortBy('date', 'desc').skip(this.skip).limit(this.limit).fetch()
+      if (tags) {
+        this.contents = await this.$content(this.contentType).where({ tags: { $contains: tags } }).sortBy('date', 'desc').skip(this.skip).limit(this.limit).fetch()
+      } else {
+        this.contents = await this.$content(this.contentType).sortBy('date', 'desc').skip(this.skip).limit(this.limit).fetch()
+      }
     },
-    async getTotalLength () {
-      const contents = await this.$content(this.contentType).fetch()
+    async getTotalLength (tags = null) {
+      let contents = []
+      if (tags) {
+        contents = await this.$content(this.contentType).where({ tags: { $contains: tags } }).fetch()
+      } else {
+        contents = await this.$content(this.contentType).fetch()
+      }
       this.pageLength = Math.ceil(contents.length / this.limit)
+    },
+    initializeTagState () {
+      this.tags.map(tag => this.tagState.push({ name: tag, selected: false }))
+    },
+    getContentListByTags (tags = []) {
+      const tagNames = tags.map((tag) => {
+        if (tag.selected) { return tag.name }
+      }).filter(v => v)
+      this.overlay = true
+      this.loaded = false
+      this.getContentList(tagNames).then(() => {
+        this.getTotalLength(tagNames)
+      }).catch(() => {
+      }).finally(() => {
+        this.overlay = false
+        this.loaded = true
+      })
     }
   }
 })

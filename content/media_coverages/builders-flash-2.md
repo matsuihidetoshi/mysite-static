@@ -1,5 +1,6 @@
 ---
 title: AWS builders.flash✨ 掲載 その2
+tags: ["技術", "情報"]
 id: builders-flash-2
 image: /media_coverages/comprehend_vue.png
 description: Amplify + Vue.js + Lambda + Amazon Comprehend を活用したハンズオンを、AWS公式Webマガジン builders.flash✨ に掲載

@@ -7,29 +7,62 @@
       mb-3
     "
   >
-    <v-btn
-      v-for="(tag, index) in tags"
+    <div
+      v-for="(tag, index) in value"
       :key="index"
-      :color="'#' + tag.color"
-      class="
-        white--text
-        font-weight-bold
-        mt-1
-        ml-1
-      "
+      class="d-inline"
     >
-      #{{ tag.name }}
-    </v-btn>
+      <v-btn
+        v-if="hideInvisible(tag.name)"
+        :color="changeColor(tag.selected)"
+        class="
+          font-weight-bold
+          mt-1
+          ml-1
+        "
+        @click="toggle(index)"
+      >
+        #{{ tag.name }}
+      </v-btn>
+    </div>
   </div>
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import tags from '~/data/tags.json'
 
 @Component({
-  data () {
-    return {
-      tags
+  props: {
+    value: {
+      type: Array,
+      required: true
+    },
+    visibles: {
+      type: Array
+    }
+  },
+  methods: {
+    toggle (index) {
+      const value = this.value
+      if (value[index].selected) {
+        value[index].selected = false
+      } else {
+        value[index].selected = true
+      }
+      this.$emit('input', value)
+    },
+    hideInvisible (value) {
+      if (!this.visibles || this.visibles.includes(value)) {
+        return true
+      } else {
+        return false
+      }
+    },
+    changeColor (selected) {
+      if (selected) {
+        return 'secondary'
+      } else {
+        return ''
+      }
     }
   }
 })

@@ -1,5 +1,6 @@
 ---
 title: 情報サイトテンプレート
+tags: ["技術", "地域"]
 id: shopinfo
 image: /works/shopinfo.png
 description: 店舗向けの情報サイトのテンプレート

@@ -1,5 +1,6 @@
 ---
 title: S3 + CloudFrontをAmplify CLIから構成してNuxt.js製SPAを最低限動かす
+tags: ["技術"]
 id: s3-cloudfront-cli-hosting
 image: /articles/s3-cloudfront-cli-hosting.png
 description: Amplify CLI の方から add hosting でデプロイしようとしたら結構ハマった

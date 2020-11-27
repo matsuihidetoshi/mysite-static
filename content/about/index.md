@@ -1,5 +1,6 @@
 ---
 title: About
+tags: ["情報"]
 id: index
 image: /profile.png
 description: 静岡県浜松市のWeb開発者 松井英俊の自己紹介

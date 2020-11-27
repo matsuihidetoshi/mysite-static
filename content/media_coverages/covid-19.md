@@ -1,5 +1,6 @@
 ---
 title: 新型コロナウイルス感染症に関する一連の対策
+tags: ["技術", "情報", "地域"]
 id: covid-19
 image: /media_coverages/covid-19.png
 description: 新型コロナ対策の一連の動きについてのNHKによる取材

@@ -1,5 +1,6 @@
 ---
 title: Nuxt.js + Amplify SSGデプロイのポイント（自サイトSSG化）
+tags: ["技術"]
 id: mysite-staticization
 image: /works/mysite.png
 description: ようやっと Nuxt.js + Amplify Console でSSGのサイトを不自由なくデプロイする方法に行き着くことができたので、そのまとめ

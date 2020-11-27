@@ -1,5 +1,6 @@
 ---
 title: 個人的遠州おすすめスポット3選
+tags: ["地域", "遊び", "情報"]
 id: enshu-recommended-spots
 image: /articles/enshu-recommended-spots.png
 description: たまには技術と関係ない日記ということで、近隣のおすすめスポットを紹介する

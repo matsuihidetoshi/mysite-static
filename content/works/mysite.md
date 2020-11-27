@@ -1,5 +1,6 @@
 ---
 title: このサイト
+tags: ["技術"]
 id: mysite
 image: /works/mysite.png
 description: このサイトの作成の経緯や構成についての説明
