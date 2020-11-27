@@ -37,6 +37,21 @@
         #{{ tag.name }}
       </v-btn>
     </div>
+
+    <v-btn
+      v-if="clear"
+      color="primary"
+      class="
+        float-right
+        font-weight-bold
+        mt-1
+        ml-1
+        mr-1
+      "
+      @click="clearState()"
+    >
+      clear
+    </v-btn>
   </div>
 </template>
 <script>
@@ -53,6 +68,10 @@ import { Component, Vue } from 'nuxt-property-decorator'
     link: {
       type: String,
       default: null
+    },
+    clear: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -78,6 +97,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
       } else {
         return ''
       }
+    },
+    clearState () {
+      this.value.map((value) => { value.selected = false })
     }
   }
 })

@@ -25,6 +25,12 @@
       :document="content"
     />
 
+    <tags
+      v-model="tagObject"
+      :only="content.tags"
+      :link="content.dir"
+    />
+
     <v-row>
       <v-spacer />
 

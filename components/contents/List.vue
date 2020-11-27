@@ -11,6 +11,7 @@
 
     <tags
       v-model="tagState"
+      :clear="true"
     />
 
     <v-pagination
@@ -87,6 +88,7 @@
 
     <tags
       v-model="tagState"
+      :clear="true"
     />
 
     <v-row>
