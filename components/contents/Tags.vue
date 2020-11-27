@@ -13,7 +13,7 @@
       class="d-inline"
     >
       <v-btn
-        v-if="hideInvisible(tag.name)"
+        v-if="hideInvisible(tag.name) && !link"
         :color="changeColor(tag.selected)"
         class="
           font-weight-bold
@@ -21,6 +21,18 @@
           ml-1
         "
         @click="toggle(index)"
+      >
+        #{{ tag.name }}
+      </v-btn>
+      <v-btn
+        v-if="hideInvisible(tag.name) && link"
+        :color="changeColor(tag.selected)"
+        class="
+          font-weight-bold
+          mt-1
+          ml-1
+        "
+        :to="link + '?tag=' + tag.name"
       >
         #{{ tag.name }}
       </v-btn>
@@ -33,11 +45,14 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({
   props: {
     value: {
-      type: Array,
-      required: true
-    },
-    visibles: {
       type: Array
+    },
+    only: {
+      type: Array
+    },
+    link: {
+      type: String,
+      default: null
     }
   },
   methods: {
@@ -51,7 +66,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
       this.$emit('input', value)
     },
     hideInvisible (value) {
-      if (!this.visibles || this.visibles.includes(value)) {
+      if (!this.only || this.only.includes(value)) {
         return true
       } else {
         return false

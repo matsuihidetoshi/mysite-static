@@ -14,6 +14,12 @@
       "
     />
 
+    <tags
+      v-model="tagObject"
+      :only="content.tags"
+      :link="content.dir"
+    />
+
     <nuxt-content
       v-if="content"
       :document="content"
@@ -49,10 +55,13 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import EmergeText from '~/components/EmergeText.vue'
+import tags from '~/data/tags.json'
+import Tags from '~/components/contents/Tags.vue'
 
 @Component({
   components: {
-    EmergeText
+    EmergeText,
+    Tags
   },
   props: {
     content: {
@@ -62,6 +71,20 @@ import EmergeText from '~/components/EmergeText.vue'
     returnToList: {
       type: Boolean,
       default: true
+    }
+  },
+  data () {
+    return {
+      tags,
+      tagObject: []
+    }
+  },
+  mounted () {
+    this.tagObject = this.initializeTagState()
+  },
+  methods: {
+    initializeTagState () {
+      return this.tags.map((tag) => { return { name: tag, selected: false } })
     }
   }
 })

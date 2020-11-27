@@ -57,7 +57,7 @@
 
               <tags
                 v-model="tagState"
-                :visibles="content.tags"
+                :only="content.tags"
               />
             </v-card-text>
           </v-card>
@@ -150,13 +150,22 @@ import Tags from '~/components/contents/Tags.vue'
   },
   mounted () {
     this.initializeTagState()
-    this.getContentList().then(() => {
-      this.getTotalLength()
-    }).catch(() => {
-    }).finally(() => {
-      this.overlay = false
-      this.loaded = true
-    })
+    if (this.$route.query.tag) {
+      const tag = this.$route.query.tag
+      this.tagState.map((state) => {
+        if (tag === state.name) {
+          state.selected = true
+        }
+      })
+    } else {
+      this.getContentList().then(() => {
+        this.getTotalLength()
+      }).catch(() => {
+      }).finally(() => {
+        this.overlay = false
+        this.loaded = true
+      })
+    }
   },
   watch: {
     tagState: {
