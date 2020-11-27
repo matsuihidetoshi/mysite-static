@@ -43,8 +43,8 @@ import { Component, Vue } from 'nuxt-property-decorator'
   methods: {
     parseLetters (message) {
       const result = []
-      Array.from(message).forEach((letter, index) => {
-        result.push({ value: letter, animationType: index + 1 })
+      Array.from(message).forEach((letter) => {
+        result.push({ value: letter })
       })
       return result
     },
@@ -58,7 +58,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
         return randomNumbers[dataArray.indexOf(a)] - randomNumbers[dataArray.indexOf(b)]
       })
       this.letters.forEach((letter, index) => {
-        letter.animationType = result[index]
+        letter.animationType = result[index] % 5
       })
     }
   }
@@ -68,7 +68,7 @@ export default class EmergeText extends Vue { }
 </script>
 
 <style>
-.fade--1 {
+.fade--0 {
   opacity: 0;
   animation-duration: 0.15s;
   animation-delay : 0.05s;
@@ -76,7 +76,7 @@ export default class EmergeText extends Vue { }
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-.fade--2 {
+.fade--1 {
   opacity: 0;
   animation-duration: 0.15s;
   animation-delay : 0.1s;
@@ -84,7 +84,7 @@ export default class EmergeText extends Vue { }
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-.fade--3 {
+.fade--2 {
   opacity: 0;
   animation-duration: 0.15s;
   animation-delay : 0.15s;
@@ -92,7 +92,7 @@ export default class EmergeText extends Vue { }
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-.fade--4 {
+.fade--3 {
   opacity: 0;
   animation-duration: 0.15s;
   animation-delay : 0.2s;
@@ -100,90 +100,10 @@ export default class EmergeText extends Vue { }
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-.fade--5 {
+.fade--4 {
   opacity: 0;
   animation-duration: 0.15s;
   animation-delay : 0.25s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--6 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.3s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--7 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.35s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--8 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.4s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--9 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.45s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--10 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.5s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--11 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.55s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--12 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.6s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--13 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.65s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--14 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.7s;
-  animation-name: fadein;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.fade--15 {
-  opacity: 0;
-  animation-duration: 0.15s;
-  animation-delay : 0.75s;
   animation-name: fadein;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
