@@ -4,7 +4,7 @@ tags: ["技術"]
 id: mysite-staticization
 image: /works/mysite.png
 description: ようやっと Nuxt.js + Amplify Console でSSGのサイトを不自由なくデプロイする方法に行き着くことができたので、そのまとめ
-url: /works/mysite-staticization/
+url: /articles/mysite-staticization/
 date: 2020-11-19 00:00:00
 ---
 

@@ -13,8 +13,8 @@ import Detail from '~/components/contents/Detail.vue'
     Detail
   },
   async asyncData ({ $content }) {
-    const contents = await $content('about').where({ id: 'index' }).fetch()
-    return { content: contents[0] }
+    const content = await $content('about', 'index').fetch()
+    return { content }
   },
   head () {
     return {

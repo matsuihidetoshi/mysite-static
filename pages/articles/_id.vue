@@ -12,8 +12,8 @@ import Detail from '~/components/contents/Detail.vue'
     Detail
   },
   async asyncData ({ $content, params }) {
-    const contents = await $content('articles').where({ id: params.id }).fetch()
-    return { content: contents[0] }
+    const content = await $content('articles', params.id).fetch()
+    return { content }
   },
   head () {
     return {

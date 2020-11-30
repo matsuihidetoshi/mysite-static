@@ -132,7 +132,8 @@ import descriptions from '~/data/descriptions.json'
   },
   data () {
     return {
-      descriptions
+      descriptions,
+      contents: []
     }
   }
 })
