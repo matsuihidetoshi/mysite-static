@@ -45,7 +45,7 @@
         float-right
         font-weight-bold
         mt-1
-        ml-1
+        ml-2
         mr-1
       "
       @click="clearState()"
