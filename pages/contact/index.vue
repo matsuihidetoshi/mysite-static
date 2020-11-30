@@ -38,7 +38,7 @@
 
             <v-btn
               block
-              color="success"
+              color="primary"
               class="
                 font-weight-bold
                 mt-3
@@ -108,14 +108,21 @@
         </v-card-text>
 
         <v-btn
-          class="warning"
+          class="
+            secondary
+            font-weight-bold
+          "
           @click="dialog = false"
         >
           戻る
         </v-btn>
 
         <v-btn
-          class="success float-right"
+          class="
+            primary
+            font-weight-bold
+            float-right
+          "
           @click="post(); dialog = false"
         >
           送信
@@ -133,7 +140,10 @@
         </v-card-text>
 
         <v-btn
-          class="warning"
+          class="
+            warning
+            font-weight-bold
+          "
           @click="dialog = false"
         >
           戻る
@@ -160,7 +170,8 @@
       <template v-slot:action="{ attrs }">
         <v-btn
           class="
-            warning
+            secondary
+            font-weight-bold
           "
           text
           v-bind="attrs"
