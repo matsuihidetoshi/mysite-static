@@ -1,19 +1,21 @@
 <template>
-  <v-card
-    class="
-      pl-5
-      pr-5
-    "
-  >
+  <v-card>
     <v-card-title>
-      What's new
+      What's New
     </v-card-title>
 
-    <v-row>
+    <v-row
+      class="
+        pr-5
+        pl-5
+      "
+    >
       <v-col
         v-for="(content, index) in contents"
         :key="index"
-        class="text-truncate"
+        class="
+          text-truncate
+        "
         cols="12"
         sm="6"
         md="4"
