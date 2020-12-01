@@ -67,6 +67,8 @@
       </v-row>
     </v-card>
 
+    <latest />
+
     <v-row>
       <v-col
         v-for="(description, index) in descriptions"
@@ -124,11 +126,13 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import EmergeText from '~/components/EmergeText.vue'
+import Latest from '~/components/contents/Latest.vue'
 import descriptions from '~/data/descriptions.json'
 
 @Component({
   components: {
-    EmergeText
+    EmergeText,
+    Latest
   },
   data () {
     return {
