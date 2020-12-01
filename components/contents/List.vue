@@ -26,7 +26,7 @@
       <v-col
         v-for="(content, index) in contents"
         :key="index"
-        xs="12"
+        cols="12"
         sm="6"
         md="4"
         class="pa-3"

@@ -73,7 +73,7 @@
       <v-col
         v-for="(description, index) in descriptions"
         :key="index"
-        xs="12"
+        cols="12"
         sm="6"
         md="4"
       >

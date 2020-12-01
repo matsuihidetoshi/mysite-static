@@ -1,16 +1,20 @@
 <template>
   <v-card
-    class="pa-1"
+    class="
+      pl-5
+      pr-5
+    "
   >
     <v-card-title>
       What's new
     </v-card-title>
+
     <v-row>
       <v-col
         v-for="(content, index) in contents"
         :key="index"
         class="text-truncate"
-        xs="12"
+        cols="12"
         sm="6"
         md="4"
       >
@@ -26,7 +30,12 @@
         >
           {{ content.typeName }}
         </v-card>
-        {{ content.title }}
+
+        <nuxt-link
+          :to="content.path"
+        >
+          {{ content.title }}
+        </nuxt-link>
       </v-col>
     </v-row>
   </v-card>
@@ -41,15 +50,15 @@ import { Component, Vue } from 'nuxt-property-decorator'
       types: {
         '/articles': {
           name: '日記',
-          color: 'pink darken-1'
+          color: 'pink lighten-1'
         },
         '/media_coverages': {
           name: 'メディア掲載',
-          color: 'deep-orange'
+          color: 'orange darken-1'
         },
         '/works': {
           name: '製作物',
-          color: 'teal darken-1'
+          color: 'teal lighten-1'
         }
       }
     }
