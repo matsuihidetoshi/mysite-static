@@ -42,7 +42,7 @@
         "
         :to="content.dir"
       >
-        back
+        index
       </v-btn>
 
       <v-btn

@@ -1,5 +1,10 @@
 <template>
-  <v-card>
+  <v-card
+    class="
+      mt-6
+      mb-3
+    "
+  >
     <v-card-title>
       What's New
     </v-card-title>
@@ -24,12 +29,19 @@
           :color="content.color"
           class="
             ma-1
+            pa-1
+            pl-2
             white--text
             font-weight-bold
-            text-center
+            text-left
           "
-          width="120"
+          width="150"
         >
+          <v-icon
+            color="white"
+          >
+            {{ items.find(item => item.to == content.dir).icon }}
+          </v-icon>
           {{ content.typeName }}
         </v-card>
 
@@ -44,10 +56,12 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
+import items from '~/data/items.json'
 
 @Component({
   data () {
     return {
+      items,
       contents: [],
       types: {
         '/articles': {
