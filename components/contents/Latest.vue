@@ -11,8 +11,8 @@
 
     <v-row
       class="
-        pr-5
-        pl-5
+        pr-4
+        pl-4
       "
     >
       <v-col
@@ -25,28 +25,29 @@
         sm="6"
         md="4"
       >
-        <v-card
+        <v-chip
           :color="content.color"
+          outlined
           class="
-            ma-1
-            pa-1
-            pl-2
-            white--text
+            mr-1
+            mb-1
             font-weight-bold
-            text-left
           "
           width="150"
+          :to="content.dir"
         >
           <v-icon
-            color="white"
+            :color="content.color"
+            class="mr-1"
           >
             {{ items.find(item => item.to == content.dir).icon }}
           </v-icon>
           {{ content.typeName }}
-        </v-card>
+        </v-chip>
 
         <nuxt-link
           :to="content.path"
+          class="font-weight-bold"
         >
           {{ content.title }}
         </nuxt-link>
