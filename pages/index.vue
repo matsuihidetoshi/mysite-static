@@ -74,6 +74,7 @@
         cols="12"
         sm="6"
         md="4"
+        class="pb-0"
       >
         <v-card
           height="100%"
@@ -109,6 +110,7 @@
         xs="12"
         sm="6"
         md="4"
+        class="pb-0"
       >
         <v-card
           height="100%"
