@@ -47,7 +47,6 @@
 
         <nuxt-link
           :to="content.path"
-          class="font-weight-bold"
         >
           {{ content.title }}
         </nuxt-link>
