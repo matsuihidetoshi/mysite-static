@@ -55,7 +55,8 @@ export default {
     '@nuxt/content',
 
     ['@nuxtjs/google-adsense', {
-      id: 'ca-pub-3773045536610320'
+      id: 'ca-pub-3773045536610320',
+      pageLevelAds: true
     }]
   ],
 
