@@ -58,7 +58,9 @@ export default {
     ['@nuxtjs/google-adsense', {
       id: 'ca-pub-3773045536610320',
       pageLevelAds: true
-    }]
+    }],
+
+    '@nuxtjs/sitemap'
   ],
 
   googleAnalytics: {
@@ -117,10 +119,19 @@ export default {
     }
   },
 
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: process.env.BASE_URL || 'http://localhost:3000',
+    routes () {
+      const { $content } = require('@nuxt/content')
+      return $content.database.items._data.map((data: any) => (data.path === '/index' || data.path === '/about/index') ? '/' : data.path)
+    }
+  },
+
   generate: {
     routes () {
       const { $content } = require('@nuxt/content')
-      return $content.database.items._data.map((data: any) => data.path === '/index' ? '/' : data.path)
+      return $content.database.items._data.map((data: any) => (data.path === '/index' || data.path === '/about/index') ? '/' : data.path)
     }
   },
 
