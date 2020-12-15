@@ -42,7 +42,8 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -59,6 +60,10 @@ export default {
       pageLevelAds: true
     }]
   ],
+
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID || ''
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
