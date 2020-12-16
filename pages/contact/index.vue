@@ -1,11 +1,11 @@
 <template>
-  <div class="contact">
+  <div>
     <v-row class="text-center pa-3">
       <v-col
         cols="12"
       >
         <h1>
-          <name message="お問い合わせ" />
+          <emerge-text message="お問い合わせ" />
         </h1>
 
         <v-card
@@ -189,13 +189,19 @@ import axios from 'axios'
 import PrivacyPolicy from '~/components/PrivacyPolicy.vue'
 
 @Component({
-  name: 'Contact',
   components: {
     PrivacyPolicy
   },
   head () {
     return {
-      title: 'お問い合わせ'
+      title: 'お問い合わせ',
+      meta: [
+        {
+          hid: 'description',
+          property: 'description',
+          content: 'お問い合わせはこちらからお願い致します。'
+        }
+      ]
     }
   },
   data () {

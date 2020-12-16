@@ -21,6 +21,11 @@ import Detail from '~/components/contents/Detail.vue'
       title: this.content.title,
       meta: [
         {
+          hid: 'description',
+          property: 'description',
+          content: this.content.description
+        },
+        {
           hid: 'og:title',
           property: 'og:title',
           content: this.content.title
