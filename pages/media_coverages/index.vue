@@ -8,6 +8,11 @@ import ContentList from '~/components/contents/List.vue'
 @Component({
   components: {
     ContentList
+  },
+  head () {
+    return {
+      title: 'メディア掲載一覧'
+    }
   }
 })
 

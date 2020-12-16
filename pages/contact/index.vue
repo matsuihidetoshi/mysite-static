@@ -193,6 +193,11 @@ import PrivacyPolicy from '~/components/PrivacyPolicy.vue'
   components: {
     PrivacyPolicy
   },
+  head () {
+    return {
+      title: 'お問い合わせ'
+    }
+  },
   data () {
     return {
       title: {

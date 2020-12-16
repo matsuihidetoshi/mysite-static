@@ -18,6 +18,7 @@ import Detail from '~/components/contents/Detail.vue'
   },
   head () {
     return {
+      title: this.content.title,
       meta: [
         {
           hid: 'og:title',
