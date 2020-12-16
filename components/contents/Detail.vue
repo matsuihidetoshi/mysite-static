@@ -7,12 +7,18 @@
       />
     </h1>
 
-    <emerge-text
-      v-if="content"
-      :message="
-        new Date(content.date).toLocaleDateString()
+    <time
+      :datetime="
+        content.date
       "
-    />
+    >
+      <emerge-text
+        v-if="content"
+        :message="
+          new Date(content.date).toLocaleDateString()
+        "
+      />
+    </time>
 
     <tags
       v-model="tagObject"

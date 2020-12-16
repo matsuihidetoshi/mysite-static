@@ -54,7 +54,18 @@
             <v-card-text
               class="ml-2"
             >
-              <emerge-text :message="new Date(content.date).toLocaleDateString()" />
+              <time
+                :datetime="
+                  content.date
+                "
+              >
+                <emerge-text
+                  v-if="content"
+                  :message="
+                    new Date(content.date).toLocaleDateString()
+                  "
+                />
+              </time>
 
               <tags
                 v-model="tagState"
