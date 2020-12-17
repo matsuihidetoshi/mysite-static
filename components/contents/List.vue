@@ -70,6 +70,7 @@
               <tags
                 v-model="tagState"
                 :only="content.tags"
+                :x-small="true"
               />
             </v-card-text>
           </v-card>

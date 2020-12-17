@@ -15,6 +15,8 @@
       <v-btn
         v-if="hideInvisible(tag.name) && !link"
         :color="changeColor(tag.selected)"
+        :small="small"
+        :x-small="xSmall"
         class="
           font-weight-bold
           mt-1
@@ -27,6 +29,8 @@
       <v-btn
         v-if="hideInvisible(tag.name) && link"
         :color="changeColor(tag.selected)"
+        :small="small"
+        :x-small="xSmall"
         class="
           font-weight-bold
           mt-1
@@ -41,6 +45,8 @@
     <v-btn
       v-if="clear"
       color="primary"
+      :small="small"
+      :x-small="xSmall"
       class="
         float-right
         font-weight-bold
@@ -70,6 +76,14 @@ import { Component, Vue } from 'nuxt-property-decorator'
       default: null
     },
     clear: {
+      type: Boolean,
+      default: false
+    },
+    small: {
+      type: Boolean,
+      default: false
+    },
+    xSmall: {
       type: Boolean,
       default: false
     }
