@@ -53,6 +53,17 @@
     "tile": true
   },
   {
+    "title": "雑学",
+    "image": "knowledges.png",
+    "lines": [
+      "日々仕入れた雑学を公開していきます。",
+      "詳しくはこちらよりご覧ください。"
+    ],
+    "link": "/knowledges",
+    "icon": "mdi-lightbulb-outline",
+    "tile": true
+  },
+  {
     "title": "お問い合わせ",
     "image": "contact.png",
     "lines": [

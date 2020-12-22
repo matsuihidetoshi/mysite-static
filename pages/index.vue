@@ -67,6 +67,8 @@
 
     <latest />
 
+    <new-knowledge />
+
     <v-row>
       <v-col
         v-for="(item, index) in displayItems"
@@ -127,12 +129,14 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import EmergeText from '~/components/EmergeText.vue'
 import Latest from '~/components/contents/Latest.vue'
+import NewKnowledge from '~/components/contents/NewKnowledge.vue'
 import items from '~/data/items.json'
 
 @Component({
   components: {
     EmergeText,
-    Latest
+    Latest,
+    NewKnowledge
   },
   data () {
     return {
