@@ -10,7 +10,7 @@
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
+          :to="item.link"
           router
           exact
         >
@@ -62,10 +62,10 @@ import ScrollButton from '~/components/ScrollButton.vue'
   },
   data () {
     return {
+      items,
       clipped: true,
       drawer: false,
       fixed: true,
-      items,
       miniVariant: false,
       right: true,
       rightDrawer: false,

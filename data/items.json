@@ -1,32 +1,65 @@
 [
   {
-    "icon": "mdi-apps",
     "title": "Home",
-    "to": "/"
+    "image": "",
+    "lines": [],
+    "link": "/",
+    "icon": "mdi-apps",
+    "tile": false
   },
   {
-    "icon": "mdi-information-outline",
     "title": "About",
-    "to": "/about"
+    "image": "/about.png",
+    "lines": [
+      "静岡県浜松市在住のWeb開発者 松井英俊のWebサイトです。",
+      "日々の記録、仕事や取り組み、使用技術などについて紹介します。",
+      "こちらより自己紹介をご覧いただけます。"
+    ],
+    "link": "/about",
+    "icon": "mdi-information-outline",
+    "tile": true
   },
   {
-    "icon": "mdi-wrench",
     "title": "制作物",
-    "to": "/works"
+    "image": "/works.png",
+    "lines": [
+      "Webアプリケーションを中心に開発・運用に携わってきました。",
+      "こちらでは個人的な開発プロジェクトについて紹介します。"
+    ],
+    "link": "/works",
+    "icon": "mdi-wrench",
+    "tile": true
   },
   {
-    "icon": "mdi-camera",
     "title": "メディア掲載",
-    "to": "/media_coverages"
+    "image": "/media_coverages.png",
+    "lines": [
+      "今までの開発プロジェクトなどの取り組みを各種メディアでご紹介いただきました。",
+      "詳しくはこちらよりご覧ください。"
+    ],
+    "link": "/media_coverages",
+    "icon": "mdi-camera",
+    "tile": true
   },
   {
-    "icon": "mdi-newspaper-variant-multiple-outline",
     "title": "日記",
-    "to": "/articles"
+    "image": "articles.png",
+    "lines": [
+      "技術や日々の活動、日常生活について綴っています。",
+      "詳しくはこちらよりご覧ください。"
+    ],
+    "link": "/articles",
+    "icon": "mdi-newspaper-variant-multiple-outline",
+    "tile": true
   },
   {
-    "icon": "mdi-comment-text-outline",
     "title": "お問い合わせ",
-    "to": "/contact"
+    "image": "contact.png",
+    "lines": [
+      "お問い合わせはこちらよりお願いいたします。"
+    ],
+    "link": "/contact",
+    "icon": "mdi-comment-text-outline",
+    "tile": true
   }
 ]

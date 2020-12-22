@@ -39,7 +39,7 @@
             :color="content.color"
             class="mr-1"
           >
-            {{ items.find(item => item.to == content.dir).icon }}
+            {{ items.find(item => item.link == content.dir).icon }}
           </v-icon>
           {{ content.typeName }}
         </v-chip>

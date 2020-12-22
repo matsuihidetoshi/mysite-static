@@ -69,7 +69,7 @@
 
     <v-row>
       <v-col
-        v-for="(description, index) in descriptions"
+        v-for="(item, index) in displayItems"
         :key="index"
         cols="12"
         sm="6"
@@ -78,12 +78,12 @@
       >
         <v-card
           height="100%"
-          :to="description.link"
+          :to="item.link"
         >
           <v-img
-            v-if="description.image"
+            v-if="item.image"
             height="200"
-            :src="description.image"
+            :src="item.image"
           />
           <v-card-title
             class="
@@ -91,12 +91,12 @@
               font-weight-bold
             "
           >
-            <emerge-text :message="description.title" />
+            <emerge-text :message="item.title" />
           </v-card-title>
 
           <v-card-text>
             <p
-              v-for="(line, lineIndex) in description.lines"
+              v-for="(line, lineIndex) in item.lines"
               :key="lineIndex"
               class="mb-1"
             >
@@ -127,7 +127,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import EmergeText from '~/components/EmergeText.vue'
 import Latest from '~/components/contents/Latest.vue'
-import descriptions from '~/data/descriptions.json'
+import items from '~/data/items.json'
 
 @Component({
   components: {
@@ -136,8 +136,13 @@ import descriptions from '~/data/descriptions.json'
   },
   data () {
     return {
-      descriptions,
+      items,
       contents: []
+    }
+  },
+  computed: {
+    displayItems () {
+      return this.items.filter((item) => { return item.tile })
     }
   }
 })
