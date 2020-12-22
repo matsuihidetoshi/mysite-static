@@ -1,38 +1,44 @@
 <template>
   <v-card
-    class="mt-2"
+    class="mx-auto mt-3"
     :to="content ? content.path : null"
   >
-    <v-row>
-      <v-col
-        cols="4"
-        sm="3"
-        md="2"
-      >
-        <v-avatar
-          rounded
-          class="ml-3"
-          size="100"
-        >
-          <v-img :src="content ? content.image : null" />
-        </v-avatar>
-      </v-col>
-
-      <v-col
-        cols="8"
-        sm="9"
-        md="10"
-      >
-        <v-card-title
-          class="font-weight-bold"
+    <v-list-item
+      v-if="content"
+      three-line
+    >
+      <v-list-item-content>
+        <div
+          class="
+            overline
+            font-weight-bold
+          "
         >
           新着の雑学
-        </v-card-title>
-        <v-card-text>
-          {{ content ? content.title : null }}
-        </v-card-text>
-      </v-col>
-    </v-row>
+        </div>
+        <v-list-item-title
+          class="
+            subheading
+            font-weight-bold
+            mb-1
+          "
+        >
+          {{ content.title }}
+        </v-list-item-title>
+        <v-list-item-subtitle>
+          {{ content.description }}
+        </v-list-item-subtitle>
+      </v-list-item-content>
+
+      <v-list-item-avatar
+        tile
+        size="80"
+      >
+        <v-img
+          :src="content.image"
+        />
+      </v-list-item-avatar>
+    </v-list-item>
   </v-card>
 </template>
 <script>
