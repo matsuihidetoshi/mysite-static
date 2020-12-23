@@ -61,10 +61,11 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import tags from '~/data/tags.json'
+import Tags from '~/components/contents/Tags.vue'
 
 @Component({
   components: {
-    Tags: () => import('~/components/contents/Tags.vue')
+    Tags
   },
   props: {
     content: {

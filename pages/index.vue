@@ -113,12 +113,14 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mdiGithub } from '@mdi/js'
+import Latest from '~/components/contents/Latest.vue'
+import NewKnowledge from '~/components/contents/NewKnowledge.vue'
 import items from '~/data/items.json'
 
 @Component({
   components: {
-    Latest: () => import('~/components/contents/Latest.vue'),
-    NewKnowledge: () => import('~/components/contents/NewKnowledge.vue')
+    Latest,
+    NewKnowledge
   },
   data () {
     return {
