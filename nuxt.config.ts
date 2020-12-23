@@ -134,6 +134,16 @@ export default {
     }
   },
 
+  splitChunks: {
+    layouts: true,
+    pages: true,
+    commons: {
+      test: /[\\/]node_modules[\\/]/,
+      name: 'vendor',
+      chunks: 'initial'
+    }
+  },
+
   typescript: {
     typeCheck: true,
     ignoreNotFoundWarnings: true
