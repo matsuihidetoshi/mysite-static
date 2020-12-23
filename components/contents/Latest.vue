@@ -39,7 +39,7 @@
             :color="content.color"
             class="mr-1"
           >
-            {{ items.find(item => item.link == content.dir).icon }}
+            {{ icons[items.find(item => item.link == content.dir).icon] }}
           </v-icon>
           {{ content.typeName }}
         </v-chip>
@@ -55,12 +55,22 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
+import {
+  mdiWrench,
+  mdiCamera,
+  mdiNewspaperVariantMultipleOutline
+} from '@mdi/js'
 import items from '~/data/items.json'
 
 @Component({
   data () {
     return {
       items,
+      icons: {
+        mdiWrench,
+        mdiCamera,
+        mdiNewspaperVariantMultipleOutline
+      },
       contents: [],
       types: {
         '/articles': {

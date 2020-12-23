@@ -15,7 +15,7 @@
           exact
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{ icons[item.icon] }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
@@ -53,6 +53,14 @@
 
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
+import {
+  mdiInformationOutline,
+  mdiWrench,
+  mdiCamera,
+  mdiNewspaperVariantMultipleOutline,
+  mdiLightbulbOutline,
+  mdiCommentTextOutline
+} from '@mdi/js'
 import items from '~/data/items.json'
 import ScrollButton from '~/components/ScrollButton.vue'
 
@@ -63,6 +71,14 @@ import ScrollButton from '~/components/ScrollButton.vue'
   data () {
     return {
       items,
+      icons: {
+        mdiInformationOutline,
+        mdiWrench,
+        mdiCamera,
+        mdiNewspaperVariantMultipleOutline,
+        mdiLightbulbOutline,
+        mdiCommentTextOutline
+      },
       clipped: true,
       drawer: false,
       fixed: true,
