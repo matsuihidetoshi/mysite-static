@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-row class="text-center pa-3">
+    <v-row
+      class="
+        text-center
+        pa-3
+      "
+    >
       <v-col
         cols="12"
       >

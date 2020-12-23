@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    class="mb-9"
+  >
     <v-card>
       <v-row>
         <v-col
