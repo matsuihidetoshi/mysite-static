@@ -5,11 +5,14 @@
         cols="12"
       >
         <h1>
-          <emerge-text message="お問い合わせ" />
+          お問い合わせ
         </h1>
 
         <v-card
-          class="pa-4"
+          class="
+            mt-3
+            pa-4
+          "
         >
           <v-form
             v-model="valid"

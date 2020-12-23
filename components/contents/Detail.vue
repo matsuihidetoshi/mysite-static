@@ -1,24 +1,18 @@
 <template>
   <div>
     <h1>
-      <emerge-text
-        v-if="content"
-        :message="content.title"
-      />
+      {{ content.title }}
     </h1>
 
-    <time
-      :datetime="
-        content.date
-      "
-    >
-      <emerge-text
-        v-if="content"
-        :message="
-          new Date(content.date).toLocaleDateString()
+    <h2>
+      <time
+        :datetime="
+          content.date
         "
-      />
-    </time>
+      >
+        {{ new Date(content.date).toLocaleDateString() }}
+      </time>
+    </h2>
 
     <tags
       v-model="tagObject"
@@ -66,13 +60,11 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import EmergeText from '~/components/EmergeText.vue'
 import tags from '~/data/tags.json'
 import Tags from '~/components/contents/Tags.vue'
 
 @Component({
   components: {
-    EmergeText,
     Tags
   },
   props: {

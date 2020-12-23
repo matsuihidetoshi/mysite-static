@@ -7,8 +7,11 @@
           align="center"
         >
           <v-avatar
-            class="ml-5"
-            size="90"
+            size="97"
+            class="
+              ml-4
+              mt-2
+            "
           >
             <v-img src="/profile.png" />
           </v-avatar>
@@ -17,33 +20,14 @@
         <v-col
           cols="8"
         >
-          <div
-            class="
-              text-left
-              ma-1
-            "
-          >
-            <emerge-text
-              message="Matsui"
-              class="
-                d-inline-block
-                font-weight-bold
-                text-h5
-              "
-            />
+          <v-card-title>
+            Matsui Hidetoshi
+          </v-card-title>
 
-            <emerge-text
-              message="Hidetoshi"
-              class="
-                d-inline-block
-                font-weight-bold
-                text-h5
-              "
-            />
+          <v-card-subtitle>
+            Web Developer
 
-            <emerge-text
-              message="Web Developer"
-            />
+            <br>
 
             <v-icon
               class="mb-1"
@@ -55,12 +39,9 @@
               href="https://github.com/matsuihidetoshi"
               target="_blank"
             >
-              <emerge-text
-                message="matsuihidetoshi"
-                class="d-inline-block"
-              />
+              matsuihidetoshi
             </a>
-          </div>
+          </v-card-subtitle>
         </v-col>
       </v-row>
     </v-card>
@@ -93,7 +74,7 @@
               font-weight-bold
             "
           >
-            <emerge-text :message="item.title" />
+            {{ item.title }}
           </v-card-title>
 
           <v-card-text>
@@ -127,14 +108,12 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import EmergeText from '~/components/EmergeText.vue'
 import Latest from '~/components/contents/Latest.vue'
 import NewKnowledge from '~/components/contents/NewKnowledge.vue'
 import items from '~/data/items.json'
 
 @Component({
   components: {
-    EmergeText,
     Latest,
     NewKnowledge
   },

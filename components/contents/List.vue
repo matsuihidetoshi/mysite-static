@@ -6,7 +6,7 @@
         ma-2
       "
     >
-      <emerge-text :message="title" />
+      {{ title }}
     </h1>
 
     <tags
@@ -31,50 +31,47 @@
         md="4"
         class="pa-3"
       >
-        <nuxt-link
+        <v-card
           :to="content.path"
         >
-          <v-card
-            v-ripple
-          >
-            <v-img
-              :src="content.image"
-              height="120"
-            />
+          <v-img
+            :src="content.image"
+            height="120"
+          />
 
-            <v-card-title
+          <v-card-title>
+            <div
               class="
                 text-truncate
-                ml-2
+                font-weight-bold
               "
             >
-              <emerge-text :message="$truncate(content.title, 12)" />
-            </v-card-title>
+              {{ content.title }}
+            </div>
+          </v-card-title>
 
-            <v-card-text
-              class="ml-2"
+          <v-card-subtitle
+            class="ml-2"
+          >
+            <time
+              :datetime="
+                content.date
+              "
             >
-              <time
-                :datetime="
-                  content.date
-                "
-              >
-                <emerge-text
-                  v-if="content"
-                  :message="
-                    new Date(content.date).toLocaleDateString()
-                  "
-                />
-              </time>
+              {{ new Date(content.date).toLocaleDateString() }}
+            </time>
+          </v-card-subtitle>
 
-              <tags
-                v-model="tagState"
-                :only="content.tags"
-                :x-small="true"
-              />
-            </v-card-text>
-          </v-card>
-        </nuxt-link>
+          <v-card-actions
+            class="ml-2"
+          >
+            <tags
+              v-model="tagState"
+              :only="content.tags"
+              :x-small="true"
+            />
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
 
@@ -86,7 +83,7 @@
       >
         <v-card>
           <v-card-title>
-            <emerge-text message="No posts yet." />
+            No posts yet.
           </v-card-title>
         </v-card>
       </v-col>
@@ -130,13 +127,11 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import EmergeText from '~/components/EmergeText.vue'
 import tags from '~/data/tags.json'
 import Tags from '~/components/contents/Tags.vue'
 
 @Component({
   components: {
-    EmergeText,
     Tags
   },
   props: {

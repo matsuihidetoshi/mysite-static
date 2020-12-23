@@ -16,6 +16,7 @@
         >
           新着の雑学
         </div>
+
         <v-list-item-title
           class="
             subheading
@@ -25,7 +26,9 @@
         >
           {{ content.title }}
         </v-list-item-title>
+
         <v-list-item-subtitle>
+          {{ new Date(content.date).toLocaleDateString() + " -" }}
           {{ content.description }}
         </v-list-item-subtitle>
       </v-list-item-content>
