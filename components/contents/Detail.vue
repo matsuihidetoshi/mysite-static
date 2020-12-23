@@ -4,7 +4,7 @@
       {{ content.title }}
     </h1>
 
-    <h2>
+    <p>
       <time
         :datetime="
           content.date
@@ -12,7 +12,7 @@
       >
         {{ new Date(content.date).toLocaleDateString() }}
       </time>
-    </h2>
+    </p>
 
     <tags
       v-model="tagObject"

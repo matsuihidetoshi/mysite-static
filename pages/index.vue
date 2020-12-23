@@ -20,7 +20,9 @@
         <v-col
           cols="8"
         >
-          <v-card-title>
+          <v-card-title
+            class="font-weight-bold"
+          >
             Matsui Hidetoshi
           </v-card-title>
 
@@ -32,7 +34,7 @@
             <v-icon
               class="mb-1"
             >
-              mdi-github
+              {{ mdiGithub }}
             </v-icon>
 
             <a
@@ -108,6 +110,7 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
+import { mdiGithub } from '@mdi/js'
 import Latest from '~/components/contents/Latest.vue'
 import NewKnowledge from '~/components/contents/NewKnowledge.vue'
 import items from '~/data/items.json'
@@ -119,6 +122,7 @@ import items from '~/data/items.json'
   },
   data () {
     return {
+      mdiGithub,
       items,
       contents: []
     }

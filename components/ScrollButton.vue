@@ -9,16 +9,20 @@
     color="primary"
     @click="$vuetify.goTo(0)"
   >
-    <v-icon>mdi-apple-keyboard-control</v-icon>
+    <v-icon>
+      {{ mdiAppleKeyboardControl }}
+    </v-icon>
   </v-btn>
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
+import { mdiAppleKeyboardControl } from '@mdi/js'
 
 @Component({
   data () {
     return {
-      position: 0
+      position: 0,
+      mdiAppleKeyboardControl
     }
   },
   mounted () {

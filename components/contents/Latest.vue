@@ -4,7 +4,9 @@
       mt-3
     "
   >
-    <v-card-title>
+    <v-card-title
+      class="font-weight-bold"
+    >
       What's New
     </v-card-title>
 

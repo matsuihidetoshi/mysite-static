@@ -31,7 +31,11 @@
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer">
+        <v-icon>
+          {{ icons.mdiHamburger }}
+        </v-icon>
+      </v-app-bar-nav-icon>
       <v-toolbar-title v-text="title" />
     </v-app-bar>
 
@@ -54,6 +58,8 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import {
+  mdiHamburger,
+  mdiApps,
   mdiInformationOutline,
   mdiWrench,
   mdiCamera,
@@ -72,6 +78,8 @@ import ScrollButton from '~/components/ScrollButton.vue'
     return {
       items,
       icons: {
+        mdiHamburger,
+        mdiApps,
         mdiInformationOutline,
         mdiWrench,
         mdiCamera,
