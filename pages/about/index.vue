@@ -6,11 +6,10 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import Detail from '~/components/contents/Detail.vue'
 
 @Component({
   components: {
-    Detail
+    Detail: () => import('~/components/contents/Detail.vue')
   },
   async asyncData ({ $content }) {
     const content = await $content('about', 'index').fetch()

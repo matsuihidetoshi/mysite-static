@@ -68,11 +68,10 @@ import {
   mdiCommentTextOutline
 } from '@mdi/js'
 import items from '~/data/items.json'
-import ScrollButton from '~/components/ScrollButton.vue'
 
 @Component({
   components: {
-    ScrollButton
+    ScrollButton: () => import('~/components/ScrollButton.vue')
   },
   data () {
     return {

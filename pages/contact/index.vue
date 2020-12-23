@@ -63,6 +63,7 @@
         class="
           mt-2
           mr-6
+          mb-9
         "
       >
         back
@@ -189,11 +190,10 @@
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
 import axios from 'axios'
-import PrivacyPolicy from '~/components/PrivacyPolicy.vue'
 
 @Component({
   components: {
-    PrivacyPolicy
+    PrivacyPolicy: () => import('~/components/PrivacyPolicy.vue')
   },
   head () {
     return {

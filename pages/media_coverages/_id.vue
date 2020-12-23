@@ -5,11 +5,10 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import Detail from '~/components/contents/Detail.vue'
 
 @Component({
   components: {
-    Detail
+    Detail: () => import('~/components/contents/Detail.vue')
   },
   async asyncData ({ $content, params }) {
     const content = await $content('media_coverages', params.id).fetch()

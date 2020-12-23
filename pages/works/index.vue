@@ -3,11 +3,10 @@
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import ContentList from '~/components/contents/List.vue'
 
 @Component({
   components: {
-    ContentList
+    ContentList: () => import('~/components/contents/List.vue')
   },
   head () {
     return {
