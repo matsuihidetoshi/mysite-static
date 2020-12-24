@@ -4,7 +4,7 @@ tags: ["科学", "情報"]
 id: eels-evolutionary-lineage
 image: /knowledges/eel.png
 description: ヤツメウナギの属する円口類は我々人類やウナギよりも進化の系統上かなり以前の段階で分岐している
-url: /articles/eels-evolutionary-lineage/
+url: /knowledges/eels-evolutionary-lineage/
 date: 2020-12-22
 ---
 
