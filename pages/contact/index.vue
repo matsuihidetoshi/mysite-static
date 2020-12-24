@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    class="mb-9"
+  >
     <v-row
       class="
         text-center
