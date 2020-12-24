@@ -2,7 +2,7 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      :clipped="clipped"
+      clipped
       fixed
       app
     >
@@ -46,7 +46,7 @@
     </v-main>
 
     <v-footer
-      :absolute="!fixed"
+      absolute
       app
     >
       <span>&copy; {{ new Date().getFullYear() }} &nbsp; Matsui Hidetoshi</span>
@@ -87,12 +87,7 @@ import ScrollButton from '~/components/ScrollButton.vue'
         mdiLightbulbOutline,
         mdiCommentTextOutline
       },
-      clipped: true,
       drawer: false,
-      fixed: true,
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'Matsui Hidetoshi'
     }
   }
