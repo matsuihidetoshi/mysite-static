@@ -6,22 +6,7 @@
       fixed
       app
     >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.link"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ icons[item.icon] }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <navigation-menu />
     </v-navigation-drawer>
 
     <v-app-bar
@@ -33,7 +18,7 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer">
         <v-icon>
-          {{ icons.mdiHamburger }}
+          {{ mdiHamburger }}
         </v-icon>
       </v-app-bar-nav-icon>
       <v-toolbar-title v-text="title" />
@@ -57,36 +42,18 @@
 
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'
-import {
-  mdiHamburger,
-  mdiApps,
-  mdiInformationOutline,
-  mdiWrench,
-  mdiCamera,
-  mdiNewspaperVariantMultipleOutline,
-  mdiLightbulbOutline,
-  mdiCommentTextOutline
-} from '@mdi/js'
-import items from '~/data/items.json'
+import { mdiHamburger } from '@mdi/js'
 import ScrollButton from '~/components/ScrollButton.vue'
+import NavigationMenu from '~/components/NavigationMenu.vue'
 
 @Component({
   components: {
-    ScrollButton
+    ScrollButton,
+    NavigationMenu
   },
   data () {
     return {
-      items,
-      icons: {
-        mdiHamburger,
-        mdiApps,
-        mdiInformationOutline,
-        mdiWrench,
-        mdiCamera,
-        mdiNewspaperVariantMultipleOutline,
-        mdiLightbulbOutline,
-        mdiCommentTextOutline
-      },
+      mdiHamburger,
       drawer: false,
       title: 'Matsui Hidetoshi'
     }
