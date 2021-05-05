@@ -121,16 +121,15 @@ import { items, Item } from '../data/items'
   components: {
     Latest,
     NewKnowledge
-  },
-  computed: {
-    displayItems () {
-      return this.items.filter((item: Item) => { return item.tile })
-    }
   }
 })
 export default class Index extends Vue {
   mdiGithub = mdiGithub
   items = items
   contents = []
+
+  get displayItems () {
+    return this.items.filter((item: Item) => { return item.tile })
+  }
 }
 </script>

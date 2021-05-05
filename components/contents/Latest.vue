@@ -64,6 +64,12 @@ import {
 } from '@mdi/js'
 import { items } from '../../data/items'
 
+interface Content {
+  dir: string
+  typeName: string
+  color: string
+}
+
 @Component
 export default class Latest extends Vue {
   $content: any
@@ -76,20 +82,23 @@ export default class Latest extends Vue {
     mdiNewspaperVariantMultipleOutline
   }
 
-  types = {
-    '/articles': {
+  types = [
+    {
+      path: '/articles',
       name: '日記',
       color: 'pink lighten-1'
     },
-    '/media_coverages': {
+    {
+      path: '/media_coverages',
       name: 'メディア掲載',
       color: 'orange darken-1'
     },
-    '/works': {
+    {
+      path: '/works',
       name: '製作物',
       color: 'teal lighten-1'
     }
-  }
+  ]
 
   mounted () {
     this.getLatestContents()
@@ -100,9 +109,9 @@ export default class Latest extends Vue {
     const mediaCoverages = await this.$content('media_coverages').sortBy('date', 'desc').limit(1).fetch()
     const works = await this.$content('works').sortBy('date', 'desc').limit(1).fetch()
     this.contents = articles.concat(mediaCoverages).concat(works)
-    this.contents.map((content) => {
-      content.typeName = this.types[content.dir].name
-      content.color = this.types[content.dir].color
+    this.contents.map((content: Content) => {
+      content.typeName = this.types.find((contentType) => { return contentType.path === content.dir })?.name || ''
+      content.color = this.types.find((contentType) => { return contentType.path === content.dir })?.color || ''
     })
   }
 }
