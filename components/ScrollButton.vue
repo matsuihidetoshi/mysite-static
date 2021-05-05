@@ -14,29 +14,25 @@
     </v-icon>
   </v-btn>
 </template>
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mdiAppleKeyboardControl } from '@mdi/js'
 
-@Component({
-  data () {
-    return {
-      position: 0,
-      mdiAppleKeyboardControl
-    }
-  },
+@Component
+export default class ScrollButton extends Vue {
+  position = 0
+  mdiAppleKeyboardControl = mdiAppleKeyboardControl
+
   mounted () {
     window.addEventListener('scroll', this.onScroll)
-  },
+  }
+
   destroyed () {
     window.removeEventListener('scroll', this.onScroll)
-  },
-  methods: {
-    onScroll () {
-      this.position = window.scrollY
-    }
   }
-})
 
-export default class ScrollButton extends Vue { }
+  onScroll () {
+    this.position = window.scrollY
+  }
+}
 </script>

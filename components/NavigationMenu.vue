@@ -17,7 +17,7 @@
     </v-list-item>
   </v-list>
 </template>
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import {
   mdiApps,
@@ -28,24 +28,19 @@ import {
   mdiLightbulbOutline,
   mdiCommentTextOutline
 } from '@mdi/js'
-import items from '~/data/items.json'
+import items from '../data/items'
 
-@Component({
-  data () {
-    return {
-      items,
-      icons: {
-        mdiApps,
-        mdiInformationOutline,
-        mdiWrench,
-        mdiCamera,
-        mdiNewspaperVariantMultipleOutline,
-        mdiLightbulbOutline,
-        mdiCommentTextOutline
-      }
-    }
+@Component
+export default class NavigationMenu extends Vue {
+  items = items
+  icons = {
+    mdiApps,
+    mdiInformationOutline,
+    mdiWrench,
+    mdiCamera,
+    mdiNewspaperVariantMultipleOutline,
+    mdiLightbulbOutline,
+    mdiCommentTextOutline
   }
-})
-
-export default class NavigationMenu extends Vue { }
+}
 </script>

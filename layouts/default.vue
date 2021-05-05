@@ -43,22 +43,19 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mdiHamburger } from '@mdi/js'
-import ScrollButton from '~/components/ScrollButton.vue'
-import NavigationMenu from '~/components/NavigationMenu.vue'
+import ScrollButton from '../components/ScrollButton.vue'
+import NavigationMenu from '../components/NavigationMenu.vue'
 
 @Component({
   components: {
     ScrollButton,
     NavigationMenu
-  },
-  data () {
-    return {
-      mdiHamburger,
-      drawer: false,
-      title: 'Matsui Hidetoshi'
-    }
   }
 })
 
-export default class Default extends Vue { }
+export default class Default extends Vue {
+  mdiHamburger = mdiHamburger
+  drawer = false
+  title = 'Matsui Hidetoshi'
+}
 </script>
