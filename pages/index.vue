@@ -110,31 +110,27 @@
     </v-row>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mdiGithub } from '@mdi/js'
-import Latest from '~/components/contents/Latest.vue'
-import NewKnowledge from '~/components/contents/NewKnowledge.vue'
-import items from '~/data/items.json'
+import Latest from '../components/contents/Latest.vue'
+import NewKnowledge from '../components/contents/NewKnowledge.vue'
+import { items, Item } from '../data/items'
 
 @Component({
   components: {
     Latest,
     NewKnowledge
   },
-  data () {
-    return {
-      mdiGithub,
-      items,
-      contents: []
-    }
-  },
   computed: {
     displayItems () {
-      return this.items.filter((item) => { return item.tile })
+      return this.items.filter((item: Item) => { return item.tile })
     }
   }
 })
-
-export default class Index extends Vue { }
+export default class Index extends Vue {
+  mdiGithub = mdiGithub
+  items = items
+  contents = []
+}
 </script>

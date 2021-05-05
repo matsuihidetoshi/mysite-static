@@ -1,4 +1,4 @@
-interface Item {
+export interface Item {
   title: string
   image: string
   lines: string[]
@@ -7,7 +7,7 @@ interface Item {
   tile: boolean
 }
 
-const items: Item[] = [
+export const items: Item[] = [
   {
     title: "Home",
     image: "",
@@ -83,5 +83,3 @@ const items: Item[] = [
     tile: true
   }
 ]
-
-export default items

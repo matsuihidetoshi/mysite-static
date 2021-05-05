@@ -55,57 +55,55 @@
     </v-row>
   </v-card>
 </template>
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import {
   mdiWrench,
   mdiCamera,
   mdiNewspaperVariantMultipleOutline
 } from '@mdi/js'
-import items from '~/data/items.json'
+import { items } from '../../data/items'
 
-@Component({
-  data () {
-    return {
-      items,
-      icons: {
-        mdiWrench,
-        mdiCamera,
-        mdiNewspaperVariantMultipleOutline
-      },
-      contents: [],
-      types: {
-        '/articles': {
-          name: '日記',
-          color: 'pink lighten-1'
-        },
-        '/media_coverages': {
-          name: 'メディア掲載',
-          color: 'orange darken-1'
-        },
-        '/works': {
-          name: '製作物',
-          color: 'teal lighten-1'
-        }
-      }
-    }
-  },
-  mounted () {
-    this.getLatestContents()
-  },
-  methods: {
-    async getLatestContents () {
-      const articles = await this.$content('articles').sortBy('date', 'desc').limit(1).fetch()
-      const mediaCoverages = await this.$content('media_coverages').sortBy('date', 'desc').limit(1).fetch()
-      const works = await this.$content('works').sortBy('date', 'desc').limit(1).fetch()
-      this.contents = articles.concat(mediaCoverages).concat(works)
-      this.contents.map((content) => {
-        content.typeName = this.types[content.dir].name
-        content.color = this.types[content.dir].color
-      })
+@Component
+export default class Latest extends Vue {
+  $content: any
+  items = items
+  contents = []
+
+  icons = {
+    mdiWrench,
+    mdiCamera,
+    mdiNewspaperVariantMultipleOutline
+  }
+
+  types = {
+    '/articles': {
+      name: '日記',
+      color: 'pink lighten-1'
+    },
+    '/media_coverages': {
+      name: 'メディア掲載',
+      color: 'orange darken-1'
+    },
+    '/works': {
+      name: '製作物',
+      color: 'teal lighten-1'
     }
   }
-})
 
-export default class Latest extends Vue { }
+  mounted () {
+    this.getLatestContents()
+  }
+
+  async getLatestContents () {
+    const articles = await this.$content('articles').sortBy('date', 'desc').limit(1).fetch()
+    const mediaCoverages = await this.$content('media_coverages').sortBy('date', 'desc').limit(1).fetch()
+    const works = await this.$content('works').sortBy('date', 'desc').limit(1).fetch()
+    this.contents = articles.concat(mediaCoverages).concat(works)
+    this.contents.map((content) => {
+      content.typeName = this.types[content.dir].name
+      content.color = this.types[content.dir].color
+    })
+  }
+}
 </script>

@@ -28,7 +28,7 @@ import {
   mdiLightbulbOutline,
   mdiCommentTextOutline
 } from '@mdi/js'
-import items from '../data/items'
+import { items } from '../data/items'
 
 @Component
 export default class NavigationMenu extends Vue {
