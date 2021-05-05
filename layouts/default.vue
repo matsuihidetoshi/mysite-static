@@ -40,7 +40,7 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mdiHamburger } from '@mdi/js'
 import ScrollButton from '~/components/ScrollButton.vue'

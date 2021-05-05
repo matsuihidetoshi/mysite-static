@@ -115,6 +115,12 @@ export default {
           exclude: /(node_modules)/
         })
       }
+    },
+    babel:{
+      plugins: [
+        ["@babel/plugin-proposal-decorators", { legacy: true }],
+        ['@babel/plugin-proposal-private-methods', { loose: true }]
+      ]
     }
   },
 
