@@ -23,12 +23,6 @@ import { Component, Vue } from 'nuxt-property-decorator'
       default: null
     }
   },
-  data () {
-    return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
-    }
-  },
   head () {
     const title =
       this.error.statusCode === 404 ? this.pageNotFound : this.otherError
@@ -38,7 +32,10 @@ import { Component, Vue } from 'nuxt-property-decorator'
   }
 })
 
-export default class Error extends Vue { }
+export default class Error extends Vue {
+  pageNotFound = '404 Not Found'
+  otherError = 'An error occurred'
+}
 </script>
 
 <style scoped>
