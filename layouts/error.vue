@@ -29,8 +29,8 @@ export default class Error extends Vue {
     }
   }
 
-  @Prop({ type: Object, default: null })
-  error: ErrorProp = { statusCode: null }
+  @Prop({ type: Object, default: () => {} })
+  error!: ErrorProp
 
   pageNotFound = '404 Not Found'
   otherError = 'An error occurred'

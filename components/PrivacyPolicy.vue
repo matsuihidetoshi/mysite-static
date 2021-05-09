@@ -114,10 +114,9 @@
     </v-card-text>
   </v-card>
 </template>
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({ })
-
+@Component
 export default class PrivacyPolicy extends Vue { }
 </script>

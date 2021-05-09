@@ -1,5 +1,5 @@
 <template>
-  <content-list content-type="knowledges" title="日記" />
+  <content-list content-type="knowledges" title="雑学" />
 </template>
 <script>
 import { Component, Vue } from 'nuxt-property-decorator'

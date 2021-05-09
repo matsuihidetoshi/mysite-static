@@ -44,25 +44,21 @@
     </v-list-item>
   </v-card>
 </template>
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({
-  data () {
-    return {
-      content: null
-    }
-  },
+@Component
+export default class NewKnowledge extends Vue {
+  $content: any
+  content = null
+
   beforeMount () {
     this.getLatestContents()
-  },
-  methods: {
-    async getLatestContents () {
-      const knowledges = await this.$content('knowledges').sortBy('date', 'desc').limit(1).fetch()
-      this.content = knowledges[0]
-    }
   }
-})
 
-export default class NewKnowledge extends Vue { }
+  async getLatestContents () {
+    const knowledges = await this.$content('knowledges').sortBy('date', 'desc').limit(1).fetch()
+    this.content = knowledges[0]
+  }
+}
 </script>
