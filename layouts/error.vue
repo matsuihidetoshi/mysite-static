@@ -16,7 +16,7 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 interface ErrorProp {
-  statusCode: number
+  statusCode: unknown
 }
 
 @Component
@@ -30,7 +30,7 @@ export default class Error extends Vue {
   }
 
   @Prop({ type: Object, default: null })
-  error: ErrorProp
+  error: ErrorProp = { statusCode: null }
 
   pageNotFound = '404 Not Found'
   otherError = 'An error occurred'
