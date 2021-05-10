@@ -193,15 +193,46 @@
     </v-snackbar>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import axios from 'axios'
-import PrivacyPolicy from '~/components/PrivacyPolicy.vue'
+import PrivacyPolicy from '../../components/PrivacyPolicy.vue'
 
 @Component({
   components: {
     PrivacyPolicy
-  },
+  }
+})
+
+export default class Index extends Vue {
+  title = {
+    value: null,
+    rules: [(v: any) => !!v || '必ず入力してください'],
+    label: '件名'
+  }
+
+  contact = {
+    value: null,
+    rules: [
+      (v: any) => !!v || '必ず入力してください',
+      (v: any) => /.+@.+/.test(v) || 'メールアドレスの形式が正しくありません'
+    ],
+    label: 'メールアドレス'
+  }
+
+  content = {
+    value: null,
+    rules: [(v: any) => !!v || '必ず入力してください'],
+    label: '内容'
+  }
+
+  valid = false
+  dialog = false
+  snackbar = false
+  loading = false
+  message = ''
+  result = ''
+
   head () {
     return {
       title: 'お問い合わせ',
@@ -213,60 +244,30 @@ import PrivacyPolicy from '~/components/PrivacyPolicy.vue'
         }
       ]
     }
-  },
-  data () {
-    return {
-      title: {
-        value: null,
-        rules: [v => !!v || '必ず入力してください'],
-        label: '件名'
-      },
-      contact: {
-        value: null,
-        rules: [
-          v => !!v || '必ず入力してください',
-          v => /.+@.+/.test(v) || 'メールアドレスの形式が正しくありません'
-        ],
-        label: 'メールアドレス'
-      },
-      content: {
-        value: null,
-        rules: [v => !!v || '必ず入力してください'],
-        label: '内容'
-      },
-      valid: false,
-      dialog: false,
-      snackbar: false,
-      loading: false,
-      message: null
-    }
-  },
-  methods: {
-    post () {
-      this.loading = true
-      if (!this.valid) { return }
-      const instance = axios.create({
-        baseURL: 'https://mcpnsdys00.execute-api.ap-northeast-1.amazonaws.com'
-      })
-      instance.post('/default/contactFunction', {
-        title: this.title.value,
-        contact: this.contact.value,
-        content: this.content.value
-      }).then((response) => {
-        this.result = response.data.body
-        this.message = '送信が完了しました。'
-      }).catch((error) => {
-        this.result = error
-        this.message = '送信が失敗しました。もう一度お試しください。'
-      }).finally(() => {
-        this.loading = false
-        this.snackbar = true
-      })
-    }
   }
-})
 
-export default class Index extends Vue { }
+  post () {
+    this.loading = true
+    if (!this.valid) { return }
+    const instance = axios.create({
+      baseURL: 'https://mcpnsdys00.execute-api.ap-northeast-1.amazonaws.com'
+    })
+    instance.post('/default/contactFunction', {
+      title: this.title.value,
+      contact: this.contact.value,
+      content: this.content.value
+    }).then((response) => {
+      this.result = response.data.body
+      this.message = '送信が完了しました。'
+    }).catch((error) => {
+      this.result = error
+      this.message = '送信が失敗しました。もう一度お試しください。'
+    }).finally(() => {
+      this.loading = false
+      this.snackbar = true
+    })
+  }
+}
 </script>
 <style scoped>
 .breakLine {
