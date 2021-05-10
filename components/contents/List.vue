@@ -170,7 +170,7 @@ export default class List extends Vue {
     this.initializeTagState()
     if (this.$route.query.tag) {
       const tag = this.$route.query.tag
-      this.tagState.map((state: any) => {
+      this.tagState.map((state: TagState) => {
         if (tag === state.name) {
           state.selected = true
         }
