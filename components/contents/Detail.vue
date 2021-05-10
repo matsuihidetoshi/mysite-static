@@ -58,40 +58,38 @@
     </v-row>
   </div>
 </template>
-<script>
-import { Component, Vue } from 'nuxt-property-decorator'
-import tags from '~/data/tags.json'
-import Tags from '~/components/contents/Tags.vue'
+<script lang="ts">
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { tags } from '../../data/tags'
+import Tags from '../../components/contents/Tags.vue'
+
+interface TagState {
+  name: string
+  selected: boolean
+}
 
 @Component({
   components: {
     Tags
-  },
-  props: {
-    content: {
-      type: Object,
-      required: true
-    },
-    returnToList: {
-      type: Boolean,
-      default: true
-    }
-  },
-  data () {
-    return {
-      tags,
-      tagObject: []
-    }
-  },
-  mounted () {
-    this.tagObject = this.initializeTagState()
-  },
-  methods: {
-    initializeTagState () {
-      return this.tags.map((tag) => { return { name: tag, selected: false } })
-    }
   }
 })
 
-export default class Detail extends Vue { }
+export default class Detail extends Vue {
+  @Prop({ type: Object, required: true })
+  content!: any
+
+  @Prop({ type: Boolean, default: true })
+  returnToList!: boolean
+
+  tags = tags
+  tagObject: TagState[] = []
+
+  mounted () {
+    this.tagObject = this.initializeTagState()
+  }
+
+  initializeTagState () {
+    return this.tags.map((tag: string) => { return { name: tag, selected: false } })
+  }
+}
 </script>

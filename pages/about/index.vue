@@ -4,18 +4,24 @@
     :return-to-list="false"
   />
 </template>
-<script>
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import Detail from '~/components/contents/Detail.vue'
+import Detail from '../../components/contents/Detail.vue'
 
 @Component({
   components: {
     Detail
-  },
-  async asyncData ({ $content }) {
+  }
+})
+
+export default class Id extends Vue {
+  content: any
+
+  async asyncData ({ $content }: any): Promise<object> {
     const content = await $content('about', 'index').fetch()
     return { content }
-  },
+  }
+
   head () {
     return {
       title: this.content.title,
@@ -48,7 +54,5 @@ import Detail from '~/components/contents/Detail.vue'
       ]
     }
   }
-})
-
-export default class Id extends Vue { }
+}
 </script>

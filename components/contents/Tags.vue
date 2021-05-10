@@ -60,63 +60,61 @@
     </v-btn>
   </div>
 </template>
-<script>
-import { Component, Vue } from 'nuxt-property-decorator'
+<script lang="ts">
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
-@Component({
-  props: {
-    value: {
-      type: Array
-    },
-    only: {
-      type: Array
-    },
-    link: {
-      type: String,
-      default: null
-    },
-    clear: {
-      type: Boolean,
-      default: false
-    },
-    small: {
-      type: Boolean,
-      default: false
-    },
-    xSmall: {
-      type: Boolean,
-      default: false
+interface Value {
+  selected: boolean
+}
+
+@Component
+export default class Tags extends Vue {
+  @Prop({ type: Array, default: () => {} })
+  value!: Value[]
+
+  @Prop({ type: Array, default: () => {} })
+  only!: []
+
+  @Prop({ type: String, default: null })
+  link!: string
+
+  @Prop({ type: Boolean, default: false })
+  clear!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  small!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  xSmall!: false
+
+  toggle (index: number) {
+    const value = this.value
+    if (value[index].selected) {
+      value[index].selected = false
+    } else {
+      value[index].selected = true
     }
-  },
-  methods: {
-    toggle (index) {
-      const value = this.value
-      if (value[index].selected) {
-        value[index].selected = false
-      } else {
-        value[index].selected = true
-      }
-      this.$emit('input', value)
-    },
-    hideInvisible (value) {
-      if (!this.only || this.only.includes(value)) {
-        return true
-      } else {
-        return false
-      }
-    },
-    changeColor (selected) {
-      if (selected) {
-        return 'secondary'
-      } else {
-        return ''
-      }
-    },
-    clearState () {
-      this.value.map((value) => { value.selected = false })
+    this.$emit('input', value)
+  }
+
+  hideInvisible (value: never) {
+    if (!this.only || this.only.includes(value)) {
+      return true
+    } else {
+      return false
     }
   }
-})
 
-export default class Tags extends Vue { }
+  changeColor (selected: boolean) {
+    if (selected) {
+      return 'secondary'
+    } else {
+      return ''
+    }
+  }
+
+  clearState () {
+    this.value.map((value: Value) => { value.selected = false })
+  }
+}
 </script>

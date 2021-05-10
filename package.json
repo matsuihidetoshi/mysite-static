@@ -22,12 +22,16 @@
     "@nuxtjs/pwa": "^3.0.2",
     "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.6.5",
+    "eslint-plugin-vue": "^6.2.2",
     "nuxt": "^2.14.6",
     "nuxt-property-decorator": "^2.8.8",
+    "sass-loader": "^10.1.1",
+    "ts-node": "^9.1.1",
     "vuetify": "^2.3.21"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
+    "@nuxt/typescript": "^2.8.1",
     "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
@@ -40,6 +44,7 @@
     "eslint": "^7.10.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "jest": "^26.5.0",
+    "remark-footnotes": "^2.0.0",
     "ts-jest": "^26.4.1",
     "vue-jest": "^3.0.4"
   }

@@ -125,43 +125,52 @@
     </v-overlay>
   </div>
 </template>
-<script>
-import { Component, Vue } from 'nuxt-property-decorator'
-import tags from '~/data/tags.json'
-import Tags from '~/components/contents/Tags.vue'
+<script lang="ts">
+import { Component, Vue, Prop, Watch } from 'nuxt-property-decorator'
+import { tags } from '../../data/tags'
+import Tags from '../../components/contents/Tags.vue'
+
+interface TagState {
+  name: string
+  selected: boolean
+}
 
 @Component({
   components: {
     Tags
-  },
-  props: {
-    contentType: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    }
-  },
-  data () {
-    return {
-      tags,
-      tagState: [],
-      contents: [],
-      page: 1,
-      pageLength: 0,
-      limit: 6,
-      skip: 0,
-      overlay: true,
-      loaded: false
-    }
-  },
+  }
+})
+
+export default class List extends Vue {
+  $route: any
+  $content: any
+
+  @Prop({ type: String, required: true })
+  contentType!: string
+
+  @Prop({ type: String, required: true })
+  title!: string
+
+  tags = tags
+  tagState:TagState[] = []
+  contents = []
+  page = 1
+  pageLength = 0
+  limit = 6
+  skip = 0
+  overlay = true
+  loaded = false
+
+  @Watch('tagState', { deep: true })
+  handler () {
+    this.getContentListByTags(this.tagState)
+  }
+
   mounted () {
     this.initializeTagState()
     if (this.$route.query.tag) {
       const tag = this.$route.query.tag
-      this.tagState.map((state) => {
+      this.tagState.map((state: TagState) => {
         if (tag === state.name) {
           state.selected = true
         }
@@ -175,53 +184,45 @@ import Tags from '~/components/contents/Tags.vue'
         this.loaded = true
       })
     }
-  },
-  watch: {
-    tagState: {
-      handler () {
-        this.getContentListByTags(this.tagState)
-      },
-      deep: true
-    }
-  },
-  methods: {
-    async getContentList (tags = null) {
-      this.contents = []
-      this.skip = (this.page - 1) * this.limit
-      if (tags) {
-        this.contents = await this.$content(this.contentType).where({ tags: { $contains: tags } }).sortBy('date', 'desc').skip(this.skip).limit(this.limit).fetch()
-      } else {
-        this.contents = await this.$content(this.contentType).sortBy('date', 'desc').skip(this.skip).limit(this.limit).fetch()
-      }
-    },
-    async getTotalLength (tags = null) {
-      let contents = []
-      if (tags) {
-        contents = await this.$content(this.contentType).where({ tags: { $contains: tags } }).fetch()
-      } else {
-        contents = await this.$content(this.contentType).fetch()
-      }
-      this.pageLength = Math.ceil(contents.length / this.limit)
-    },
-    initializeTagState () {
-      this.tags.map(tag => this.tagState.push({ name: tag, selected: false }))
-    },
-    getContentListByTags (tags = []) {
-      const tagNames = tags.map((tag) => {
-        if (tag.selected) { return tag.name }
-      }).filter(v => v)
-      this.overlay = true
-      this.loaded = false
-      this.getContentList(tagNames).then(() => {
-        this.getTotalLength(tagNames)
-      }).catch(() => {
-      }).finally(() => {
-        this.overlay = false
-        this.loaded = true
-      })
+  }
+
+  async getContentList (tags = null) {
+    this.contents = []
+    this.skip = (this.page - 1) * this.limit
+    if (tags) {
+      this.contents = await this.$content(this.contentType).where({ tags: { $contains: tags } }).sortBy('date', 'desc').skip(this.skip).limit(this.limit).fetch()
+    } else {
+      this.contents = await this.$content(this.contentType).sortBy('date', 'desc').skip(this.skip).limit(this.limit).fetch()
     }
   }
-})
 
-export default class List extends Vue { }
+  async getTotalLength (tags = null) {
+    let contents = []
+    if (tags) {
+      contents = await this.$content(this.contentType).where({ tags: { $contains: tags } }).fetch()
+    } else {
+      contents = await this.$content(this.contentType).fetch()
+    }
+    this.pageLength = Math.ceil(contents.length / this.limit)
+  }
+
+  initializeTagState () {
+    this.tags.map((tag: string) => this.tagState.push({ name: tag, selected: false }))
+  }
+
+  getContentListByTags (tags:TagState[] = []) {
+    const tagNames: any = tags.map((tag) => {
+      if (tag.selected) { return tag.name }
+    }).filter(v => v)
+    this.overlay = true
+    this.loaded = false
+    this.getContentList(tagNames).then(() => {
+      this.getTotalLength(tagNames)
+    }).catch(() => {
+    }).finally(() => {
+      this.overlay = false
+      this.loaded = true
+    })
+  }
+}
 </script>
