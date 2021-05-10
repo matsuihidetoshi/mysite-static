@@ -123,6 +123,7 @@ import { items, Item } from '../data/items'
     NewKnowledge
   }
 })
+
 export default class Index extends Vue {
   mdiGithub = mdiGithub
   items = items
